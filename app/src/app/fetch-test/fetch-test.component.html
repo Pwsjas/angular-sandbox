@@ -1,3 +1,17 @@
-<img src={{profileIcon}}>
-<p>{{profile}}</p>
-<p>Cutoff: {{cutoff}}</p>
+<div class="profile-container">
+    <div class="profile-image">
+        <img src={{profileIcon}}>
+        <div class="name-spec">
+            <h1>{{characterName}}</h1>
+            <p>{{characterSpec}}</p>
+        </div>
+    </div>
+    <div class="cutoff">
+        <p>Current Rating: </p>
+        <p>{{characterRating}}</p>
+    </div>
+    <div class="cutoff">
+        <p>Seasonal Title Cutoff: </p>
+        <p>{{cutoff}}</p>
+    </div>
+</div>

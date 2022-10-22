@@ -7,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FetchTestComponent implements OnInit {
 
-  profile: String = '';
   profileIcon: String = '';
+
+  characterName: String = '';
+  characterSpec: String = '';
+  characterRating: String = '';
+
   cutoff: String = '';
 
   constructor() { }
@@ -19,11 +23,13 @@ export class FetchTestComponent implements OnInit {
   }
 
   async getRaiderIO() {
-    await fetch(`https://raider.io/api/v1/characters/profile?region=us&realm=bleeding-hollow&name=Pwsjas`)
+    await fetch(`https://raider.io/api/v1/characters/profile?region=us&realm=bleeding-hollow&name=Pwsjas&fields=mythic_plus_scores_by_season%3Acurrent`)
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      this.profile = `${data.name} ${data.active_spec_name} ${data.class}`;
+      this.characterName = `${data.name}`;
+      this.characterSpec = `${data.active_spec_name} ${data.class}`;
+      this.characterRating = `${data.mythic_plus_scores_by_season[0].scores.all}`
       this.profileIcon = data.thumbnail_url;
     })
     .catch((err) => console.log(err));
