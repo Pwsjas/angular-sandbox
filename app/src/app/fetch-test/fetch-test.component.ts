@@ -9,11 +9,13 @@ export class FetchTestComponent implements OnInit {
 
   profile: String = '';
   profileIcon: String = '';
+  cutoff: String = '';
 
   constructor() { }
 
   ngOnInit(): void {
     this.getRaiderIO();
+    this.getSeasonCutoff();
   }
 
   async getRaiderIO() {
@@ -27,4 +29,13 @@ export class FetchTestComponent implements OnInit {
     .catch((err) => console.log(err));
   }
 
+  async getSeasonCutoff() {
+    await fetch(`https://raider.io/api/v1/mythic-plus/season-cutoffs?season=season-sl-4&region=us`)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      this.cutoff = data.cutoffs.p999.all.quantileMinValue;
+    })
+    .catch((err) => console.log(err));
+  }
 }
