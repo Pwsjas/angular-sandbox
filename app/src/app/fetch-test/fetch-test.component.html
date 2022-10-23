@@ -1,17 +1,37 @@
-<div class="profile-container">
-    <div class="profile-image">
-        <img src={{profileIcon}}>
-        <div class="name-spec">
-            <h1>{{characterName}}</h1>
-            <p>{{characterSpec}}</p>
+<div id="character-input">
+    <img src={{profileIcon}}>
+    <div class="input-boxes">
+        <div>
+            <p>Character Name:</p>
+            <input id="character" name="character" type="text" 
+            aria-label="character" [(ngModel)]="characterNameInput" required>
+        </div>
+        
+        <div>
+            <p>Server Name:</p>
+            <input id="server" name="server" type="text" 
+            aria-label="server" [(ngModel)]="serverNameInput" required>
         </div>
     </div>
-    <div class="cutoff">
-        <p>Current Rating: </p>
-        <p>{{characterRating}}</p>
-    </div>
-    <div class="cutoff">
-        <p>Seasonal Title Cutoff: </p>
-        <p>{{cutoff}}</p>
-    </div>
+    <button (click)="getRaiderIO()">Search</button>
+</div>
+
+
+<div class="cutoff">
+    <p>Seasonal Title Cutoff: </p>
+    <p>{{cutoff}}</p>
+</div>
+
+<div class="cutoff">
+    <h1>{{characterName}}</h1>
+    <p>{{characterSpec}}</p>
+    <p style="color:{{acquired}}">{{characterRating}}</p>
+</div>
+
+<div class="cutoff">
+    <p>{{characterName}} {{differenceMessage}}</p>
+    <p>{{keyLevelMessage}}</p>
+    <p>{{majorKeyLevelMessage}}</p>
+    <p>or</p>
+    <p>{{minorKeyLevelMessage}}</p>
 </div>

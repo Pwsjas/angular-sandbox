@@ -1,3 +1,6 @@
+* {
+    margin: 0;
+}
 .profile-container {
     display:flex;
     flex-direction: column;
@@ -29,11 +32,31 @@
         }
     }
 
-    .cutoff {
-        display:flex;
-        flex-direction: row;
-        justify-content: space-between;
-        margin-left: 1rem;
-        margin-right: 1rem;
+}
+.cutoff {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem;
+    font-size: 3rem;
+}
+#character-input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .input-boxes {
+        margin: 0.5rem;
+    }
+
+    button {
+        height: 20%;
     }
 }
+
+@media (max-width: 800px) {
+    .cutoff {
+        font-size: 1.5rem;
+    }
+  }
