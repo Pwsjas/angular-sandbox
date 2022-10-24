@@ -24,6 +24,7 @@ export class FetchTestComponent implements OnInit {
   minorKeyLevelMessage: String = '';
 
   cutoff: String = '';
+  addButton: Boolean = true;
 
   friends: Array<any> = [
     {characterName: "Tylerskohai", rating: "3008", profilePicture: "https://render-us.worldofwarcraft.com/character/illidan/26/219886362-avatar.jpg?alt=wow/static/images/2d/avatar/10-1.jpg"},
@@ -117,5 +118,9 @@ export class FetchTestComponent implements OnInit {
       this.cutoff = data.cutoffs.p999.all.quantileMinValue;
     })
     .catch((err) => console.log(err));
+  }
+
+  toggleAddButton() {
+    this.addButton = false;
   }
 }

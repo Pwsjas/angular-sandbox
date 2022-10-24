@@ -3,14 +3,13 @@
     <div class="input-boxes">
         <div>
             <p>Character Name:</p>
-            <input id="character" name="character" type="text" 
-            aria-label="character" [(ngModel)]="characterNameInput" required>
+            <input id="character" name="character" type="text" aria-label="character" [(ngModel)]="characterNameInput"
+                required>
         </div>
-        
+
         <div>
             <p>Server Name:</p>
-            <input id="server" name="server" type="text" 
-            aria-label="server" [(ngModel)]="serverNameInput" required>
+            <input id="server" name="server" type="text" aria-label="server" [(ngModel)]="serverNameInput" required>
         </div>
     </div>
     <button (click)="getRaiderIO()">Search</button>
@@ -23,13 +22,13 @@
             <p>Seasonal Title Cutoff: </p>
             <p>{{cutoff}}</p>
         </div>
-        
+
         <div class="cutoff">
             <h1>{{characterName}}</h1>
             <p>{{characterSpec}}</p>
             <p style="color:{{acquired}}">{{characterRating}}</p>
         </div>
-        
+
         <div class="cutoff">
             <p>{{characterName}} {{differenceMessage}}</p>
             <p>{{keyLevelMessage}}</p>
@@ -38,11 +37,26 @@
             <p>{{minorKeyLevelMessage}}</p>
         </div>
     </div>
-    
+
     <div class="side-bar">
-            <div *ngFor="let friend of friends">
-                <app-character-widget [profilePicture]="friend.profilePicture" [characterName]="friend.characterName" [rating]="friend.rating"></app-character-widget>
+        <div *ngFor="let friend of friends" class="character-widget">
+            <app-character-widget [profilePicture]="friend.profilePicture" [characterName]="friend.characterName"
+                [rating]="friend.rating"></app-character-widget>
+        </div>
+        <div *ngIf="addButton" class="add-character">
+            <p (click)="toggleAddButton()">+</p>
+        </div>
+        <div *ngIf="addButton === false" class="add-character-input">
+            <div>
+                <p>Character Name:</p>
+                <input id="character" name="character" type="text" aria-label="character" [(ngModel)]="characterNameInput"
+                    required>
             </div>
+            <div>
+                <p>Server Name:</p>
+                <input id="character" name="character" type="text" aria-label="character" [(ngModel)]="characterNameInput"
+                    required>
+            </div>
+        </div>
     </div>
-    
 </div>
