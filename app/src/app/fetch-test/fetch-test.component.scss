@@ -1,9 +1,26 @@
 * {
     margin: 0;
+    background-color: rgb(26, 26, 26);
 }
+
+.page-container {
+    display: flex;
+    flex-direction: row;
+
+    .main-content {
+        width: 80%;
+    }
+
+    .side-bar {
+        width: 20%;
+        background-color: rgb(32, 32, 32);
+    }
+}
+
 .profile-container {
     display:flex;
     flex-direction: column;
+    position: absolute;
     border: 4px solid grey;
     max-width: 300px;
 

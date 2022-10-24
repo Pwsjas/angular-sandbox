@@ -17,21 +17,32 @@
 </div>
 
 
-<div class="cutoff">
-    <p>Seasonal Title Cutoff: </p>
-    <p>{{cutoff}}</p>
-</div>
-
-<div class="cutoff">
-    <h1>{{characterName}}</h1>
-    <p>{{characterSpec}}</p>
-    <p style="color:{{acquired}}">{{characterRating}}</p>
-</div>
-
-<div class="cutoff">
-    <p>{{characterName}} {{differenceMessage}}</p>
-    <p>{{keyLevelMessage}}</p>
-    <p>{{majorKeyLevelMessage}}</p>
-    <p>or</p>
-    <p>{{minorKeyLevelMessage}}</p>
+<div class="page-container">
+    <div class="main-content">
+        <div class="cutoff">
+            <p>Seasonal Title Cutoff: </p>
+            <p>{{cutoff}}</p>
+        </div>
+        
+        <div class="cutoff">
+            <h1>{{characterName}}</h1>
+            <p>{{characterSpec}}</p>
+            <p style="color:{{acquired}}">{{characterRating}}</p>
+        </div>
+        
+        <div class="cutoff">
+            <p>{{characterName}} {{differenceMessage}}</p>
+            <p>{{keyLevelMessage}}</p>
+            <p>{{majorKeyLevelMessage}}</p>
+            <p>or</p>
+            <p>{{minorKeyLevelMessage}}</p>
+        </div>
+    </div>
+    
+    <div class="side-bar">
+            <div *ngFor="let friend of friends">
+                <app-character-widget [profilePicture]="friend.profilePicture" [characterName]="friend.characterName" [rating]="friend.rating"></app-character-widget>
+            </div>
+    </div>
+    
 </div>

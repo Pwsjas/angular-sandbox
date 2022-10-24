@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgModel } from '@angular/forms'
 import { CookieService } from 'ngx-cookie-service';
 
 @Component({
@@ -8,8 +7,6 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./fetch-test.component.scss']
 })
 export class FetchTestComponent implements OnInit {
-  
-  constructor(private cookie: CookieService) { }
   
   profileIcon: String = '';
   characterNameInput: String = this.cookie.get('character-name');
@@ -28,6 +25,14 @@ export class FetchTestComponent implements OnInit {
 
   cutoff: String = '';
 
+  friends: Array<any> = [
+    {characterName: "Tylerskohai", rating: "3008", profilePicture: "https://render-us.worldofwarcraft.com/character/illidan/26/219886362-avatar.jpg?alt=wow/static/images/2d/avatar/10-1.jpg"},
+    {characterName: "Falfa", rating: "3008", profilePicture: "https://render-us.worldofwarcraft.com/character/sargeras/51/192864563-avatar.jpg?alt=wow/static/images/2d/avatar/34-0.jpg"},
+    {characterName: "Deadlyb", rating: "0", profilePicture: "https://render-us.worldofwarcraft.com/character/bleeding-hollow/114/205256306-avatar.jpg?alt=wow/static/images/2d/avatar/8-1.jpg"}
+  ];
+
+  constructor(private cookie: CookieService) { }
+  
 
   ngOnInit(): void {
     this.getSeasonCutoff();
@@ -55,6 +60,8 @@ export class FetchTestComponent implements OnInit {
         this.majorKeyLevelMessage = `- ${this.getMajorKeyLevel()} major keystones behind`;
         this.minorKeyLevelMessage = `- ${this.getMinorKeyLevel()} minor keystones behind`;
       }
+
+      console.log(this.profileIcon);
     });
 
   }
