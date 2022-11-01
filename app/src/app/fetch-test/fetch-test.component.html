@@ -1,25 +1,24 @@
 
 <div class="page-container">
     <div class="main-content">
-        <div class="cutoff">
-            <p>Seasonal Title Cutoff: </p>
-            <p>{{cutoff}}</p>
+        <div class="character-content">
+            <div class="cutoff">
+                <h1>{{characterName}}</h1>
+                <p>{{characterSpec}}</p>
+                <p style="color:{{acquired}}">{{characterRating}}</p>
+            </div>
+            <div class="cutoff">
+                <p>Seasonal Title Cutoff: </p>
+                <p>{{cutoff}}</p>
+            </div>
+    
         </div>
-
-        <div class="cutoff">
-            <h1>{{characterName}}</h1>
-            <p>{{characterSpec}}</p>
-            <p style="color:{{acquired}}">{{characterRating}}</p>
+        <div class="guild-content">
+            <p><{{guildName}}></p>
+            <p>{{guildProgress}}</p>
+            <p>{{guildRank}}</p>
         </div>
-
-        <div class="cutoff">
-            <p>{{characterName}} {{differenceMessage}}</p>
-            <p>{{keyLevelMessage}}</p>
-            <p>{{majorKeyLevelMessage}}</p>
-            <p>or</p>
-            <p>{{minorKeyLevelMessage}}</p>
-        </div>
-</div>
+    </div>
 
     <div class="side-bar">
 
@@ -41,8 +40,8 @@
         </div>
 
         <div *ngFor="let friend of friends" class="character-widget">
-            <app-character-widget [profilePicture]="friend.profilePicture" [characterName]="friend.characterName"
-                [rating]="friend.rating"></app-character-widget>
+            <app-character-widget [characterName]="friend.characterName"
+                [server]="friend.server"></app-character-widget>
         </div>
         <div *ngIf="addButton" class="add-character">
             <p (click)="toggleAddButton()">+</p>
