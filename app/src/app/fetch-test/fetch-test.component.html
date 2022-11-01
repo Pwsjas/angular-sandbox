@@ -1,20 +1,3 @@
-<div id="character-input">
-    <img src={{profileIcon}}>
-    <div class="input-boxes">
-        <div>
-            <p>Character Name:</p>
-            <input id="character" name="character" type="text" aria-label="character" [(ngModel)]="characterNameInput"
-                required>
-        </div>
-
-        <div>
-            <p>Server Name:</p>
-            <input id="server" name="server" type="text" aria-label="server" [(ngModel)]="serverNameInput" required>
-        </div>
-    </div>
-    <button (click)="getRaiderIO()">Search</button>
-</div>
-
 
 <div class="page-container">
     <div class="main-content">
@@ -36,9 +19,27 @@
             <p>or</p>
             <p>{{minorKeyLevelMessage}}</p>
         </div>
-    </div>
+</div>
 
     <div class="side-bar">
+
+        <div id="character-input">
+            <img src={{profileIcon}}>
+            <div class="input-boxes">
+                <div>
+                    <p>Character Name:</p>
+                    <input id="character" name="character" type="text" aria-label="character" [(ngModel)]="characterNameInput"
+                        required>
+                </div>
+        
+                <div>
+                    <p>Server Name:</p>
+                    <input id="server" name="server" type="text" aria-label="server" [(ngModel)]="serverNameInput" required>
+                </div>
+            </div>
+            <button (click)="getRaiderIO()">Search</button>
+        </div>
+
         <div *ngFor="let friend of friends" class="character-widget">
             <app-character-widget [profilePicture]="friend.profilePicture" [characterName]="friend.characterName"
                 [rating]="friend.rating"></app-character-widget>
@@ -47,15 +48,20 @@
             <p (click)="toggleAddButton()">+</p>
         </div>
         <div *ngIf="addButton === false" class="add-character-input">
-            <div>
-                <p>Character Name:</p>
-                <input id="character" name="character" type="text" aria-label="character" [(ngModel)]="characterNameInput"
-                    required>
-            </div>
-            <div>
-                <p>Server Name:</p>
-                <input id="character" name="character" type="text" aria-label="character" [(ngModel)]="characterNameInput"
-                    required>
+            <div class="add-friend-container">
+                <div class="add-friend-input-layout">
+                    <div>
+                        <p>Character Name:</p>
+                        <input id="friendName" name="friendName" type="text" aria-label="friendName" [(ngModel)]="friendNameInput"
+                            required>
+                    </div>
+                    <div>
+                        <p>Server Name:</p>
+                        <input id="friendServer" name="friendServer" type="text" aria-label="friendServer" [(ngModel)]="friendServerInput"
+                            required>
+                    </div>
+                </div>
+                <button class="add-friend-button" (click)="getFriendRaiderIO()">Search</button>
             </div>
         </div>
     </div>

@@ -23,6 +23,29 @@
     .side-bar {
         background-color: rgb(32, 32, 32);
         border: 4px solid rgb(26, 26, 26);
+        height: 99vh;
+
+        #character-input {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            background-color: rgb(32, 32, 32);
+            border-bottom: 4px solid rgb(26, 26, 26);
+            width: 400px;
+            height:100px;
+
+            img {
+                height: 100%;
+            }
+
+            .input-boxes {
+                margin: 0.5rem;
+            }
+        
+            button {
+                height: 20%;
+            }
+        }
         
         .add-character {
             display: flex;
@@ -42,6 +65,24 @@
             height: 100px;
             background-color: rgb(32, 32, 32);
             border-bottom: 4px solid rgb(26, 26, 26);
+
+            .add-friend-input-layout {
+                display: flex;
+                flex-direction: row;
+            }
+
+            .add-friend-container {
+                display: flex;
+                flex-direction: column;
+
+                .add-friend-button {
+                    width:100%;
+                }
+
+                .add-friend-button:hover {
+                    cursor: pointer;
+                }
+            }
         }
         p {
             background-color: rgb(32, 32, 32);
@@ -91,19 +132,6 @@
     align-items: center;
     margin: 3rem;
     font-size: 3rem;
-}
-#character-input {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
-    .input-boxes {
-        margin: 0.5rem;
-    }
-
-    button {
-        height: 20%;
-    }
 }
 
 @media (max-width: 800px) {

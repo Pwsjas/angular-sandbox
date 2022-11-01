@@ -1,5 +1,14 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
+import { isObservable, of } from 'rxjs';
+import { RaiderIOService } from '../raider-io.service';
+
+const myObservable = of('apple','orange','grappe')
+const myObserver = {
+  next: (x: string) => console.log('Observer got a next value: ' + x),
+  error: (err: string) => console.error('Observer got an error: ' + err),
+  complete: () => console.log('Observer got a complete notification')
+}
 
 @Component({
   selector: 'app-fetch-test',
@@ -11,6 +20,8 @@ export class FetchTestComponent implements OnInit {
   profileIcon: String = '';
   characterNameInput: String = this.cookie.get('character-name');
   serverNameInput: String = this.cookie.get('server-name');
+  friendNameInput: String = '';
+  friendServerInput: String = '';
 
   characterName: String = '';
   characterSpec: String = '';
@@ -32,10 +43,15 @@ export class FetchTestComponent implements OnInit {
     {characterName: "Deadlyb", rating: "0", profilePicture: "https://render-us.worldofwarcraft.com/character/bleeding-hollow/114/205256306-avatar.jpg?alt=wow/static/images/2d/avatar/8-1.jpg"}
   ];
 
-  constructor(private cookie: CookieService) { }
+  constructor(private cookie: CookieService, private raiderIO: RaiderIOService) {
+    myObservable.subscribe(myObserver);
+  }
   
 
   ngOnInit(): void {
+    this.raiderIO.getCharacterProfile('Pwsjas','Bleeding-hollow').subscribe(data => {
+        console.log(data);
+    })
     this.getSeasonCutoff();
     this.getRaiderIO()
     .then(() => {
@@ -108,6 +124,10 @@ export class FetchTestComponent implements OnInit {
       this.minorKeyLevelMessage = `- ${this.getMinorKeyLevel()} minor keystones`;
     })
     .catch((err) => console.log(err));
+  }
+
+  getFriendRaiderIO() {
+
   }
 
   async getSeasonCutoff() {
