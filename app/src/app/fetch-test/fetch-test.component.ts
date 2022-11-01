@@ -21,9 +21,10 @@ export class FetchTestComponent implements OnInit {
   characterSpec: String = '';
   characterRating: String = '';
 
+  raidProgressionData: Array<any> = [];
+  raidRankingData: Array<any> = [];
+  raidData: Array<any> = [];
   guildName: String = '';
-  guildProgress: String = '';
-  guildRank: string = '';
 
   acquired: String = 'white';
 
@@ -42,11 +43,7 @@ export class FetchTestComponent implements OnInit {
   ngOnInit(): void {
     this.getSeasonCutoff();
     this.getRaiderIO();
-
-    this.raiderIO.getGuildData('tabbed out', 'bleeding-hollow').subscribe(data => {
-      console.log(data);
-      this.guildProgress = data.raid_progression['castle-nathria'].summary;
-    })
+    this.getGuildData();
   }
 
   async getRaiderIO() {
@@ -88,5 +85,19 @@ export class FetchTestComponent implements OnInit {
 
   toggleAddButton() {
     this.addButton = false;
+  }
+
+  async getGuildData() {
+    this.raiderIO.getGuildData('tabbed out', 'bleeding-hollow').subscribe(data => {
+      let num = 0;
+      for (let i in data.raid_progression) {
+        this.raidRankingData.push(data.raid_rankings[i]);
+        this.raidProgressionData.push(data.raid_progression[i]);
+        this.raidData[num] = {name: i, raidProg: this.raidProgressionData[num], raidRank: this.raidRankingData[num]}
+        num += 1;
+      }
+      console.log(this.raidData);
+      this.guildName = data.name
+    })
   }
 }

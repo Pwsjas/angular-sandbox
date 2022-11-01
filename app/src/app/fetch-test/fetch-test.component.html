@@ -3,7 +3,8 @@
     <div class="main-content">
         <div class="character-content">
             <div class="cutoff">
-                <h1>{{characterName}}</h1>
+                <h1>Character</h1>
+                <h2>{{characterName}}</h2>
                 <p>{{characterSpec}}</p>
                 <p style="color:{{acquired}}">{{characterRating}}</p>
             </div>
@@ -14,9 +15,11 @@
     
         </div>
         <div class="guild-content">
+            <h1>Guild</h1>
             <h1><{{guildName}}></h1>
-            <p>{{guildProgress}}</p>
-            <p>{{guildRank}}</p>
+            <div class="raid-data">
+                <app-raid-widget *ngFor="let raid of raidData" [raidData]="raid"></app-raid-widget>
+            </div>
         </div>
     </div>
 
