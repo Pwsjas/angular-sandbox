@@ -1,21 +1,22 @@
 
-<div class="page-container">
+<div class="page-container {{characterFaction}}">
     <div class="main-content">
         <div class="character-content">
             <div class="cutoff">
-                <h1>Character</h1>
-                <h2>{{characterName}}</h2>
-                <p>{{characterSpec}}</p>
-                <p style="color:{{acquired}}">{{characterRating}}</p>
+                <h1>{{characterName}}</h1>
+                <p class="{{characterClass}}">{{characterSpec}}</p>
+                <p class="{{acquired}}">{{characterRating}}</p>
+            </div>
+            <div class="dungeons">
+                <app-dungeon-widget *ngFor="let dungeon of dungeonData" [dungeon]="dungeon" [averageRating]="roundedAverageRating"></app-dungeon-widget>
             </div>
             <div class="cutoff">
                 <p>Seasonal Title Cutoff: </p>
-                <p>{{cutoff}}</p>
+                <p>{{cutoff}} (average of +{{averageRating}})</p>
             </div>
     
         </div>
         <div class="guild-content">
-            <h1>Guild</h1>
             <h1><{{guildName}}></h1>
             <div class="raid-data">
                 <app-raid-widget *ngFor="let raid of raidData" [raidData]="raid"></app-raid-widget>
@@ -46,10 +47,10 @@
             <app-character-widget [characterName]="friend.characterName"
                 [server]="friend.server"></app-character-widget>
         </div>
-        <div *ngIf="addButton" class="add-character">
+        <div *ngIf="addButton && friends.length < 7" class="add-character">
             <p (click)="toggleAddButton()">+</p>
         </div>
-        <div *ngIf="addButton === false" class="add-character-input">
+        <div *ngIf="addButton === false && friends.length < 7" class="add-character-input">
             <div class="add-friend-container">
                 <div class="add-friend-input-layout">
                     <div>

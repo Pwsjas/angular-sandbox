@@ -2,6 +2,7 @@
 * {
     background-color: rgb(77, 77, 77);
 }
+
 .container {
     display: flex;
     flex-direction: row;
@@ -21,8 +22,9 @@
         max-height: 300px;
         margin: 1rem;
 
-        h2 {
-            font-size: 1.5rem;
+        .dungeon {
+            border-radius: 1rem;
+            padding: 0.2rem;
         }
 
         h2, p {

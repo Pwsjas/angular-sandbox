@@ -10,13 +10,15 @@ import { AppComponent } from './app.component';
 import { FetchTestComponent } from './fetch-test/fetch-test.component';
 import { CharacterWidgetComponent } from './character-widget/character-widget.component';
 import { RaidWidgetComponent } from './raid-widget/raid-widget.component';
+import { DungeonWidgetComponent } from './dungeon-widget/dungeon-widget.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FetchTestComponent,
     CharacterWidgetComponent,
-    RaidWidgetComponent
+    RaidWidgetComponent,
+    DungeonWidgetComponent
   ],
   imports: [
     BrowserModule,

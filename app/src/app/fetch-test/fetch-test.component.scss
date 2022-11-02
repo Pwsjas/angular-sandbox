@@ -1,13 +1,13 @@
+@import "../app.component.scss";
 * {
     margin: 0;
     padding: 0;
-    background-color: rgb(26, 26, 26);
     color:white;
 }
 
 .character-widget {
     width: 400px;
-    height: 100px;
+    height: 12%;
     border-bottom: 4px solid rgb(26, 26, 26);
 }
 
@@ -15,9 +15,17 @@
     display: flex;
     flex-direction: row;
     width: 100%;
+    height: 100%;
 
     .main-content {
         width: 100%;
+
+        .dungeons {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            background-color: rgb(77, 77, 77);
+        }
     }
 
     .side-bar {
@@ -25,7 +33,8 @@
         background-color: rgb(77, 77, 77);
         border: 4px solid rgb(26, 26, 26);
         border-radius: 1.5rem;
-        height: 90vh;
+        height: 94vh;
+
 
         #character-input {
             border-top-left-radius: 1.5rem;
@@ -36,10 +45,10 @@
             align-items: center;
             background-color: rgb(77, 77, 77);
             width: 400px;
-            height:100px;
+            height: 12%;
             border-top: 2px solid grey;
 
-            p {
+            p,input,button {
                 background-color: rgb(77, 77, 77);
             }
 
@@ -62,10 +71,11 @@
             align-items: center;
             justify-content: center;
             width: 400px;
-            height: 100px;
+            height: 12%;
             font-size: 4rem;
             background-color: rgb(77, 77, 77);
-            border-bottom: 4px solid rgb(26, 26, 26);
+            border-bottom-left-radius: 1.5rem;
+            border-bottom-right-radius: 1.5rem;
 
             p {
                 background-color: rgb(77, 77, 77);
@@ -76,9 +86,10 @@
             align-items: center;
             justify-content: center;
             width: 400px;
-            height: 100px;
+            height: 12%;
             background-color: rgb(77, 77, 77);
-            border-bottom: 4px solid rgb(26, 26, 26);
+            border-bottom-left-radius: 1.5rem;
+            border-bottom-right-radius: 1.5rem;
 
             .add-friend-input-layout {
                 display: flex;
@@ -88,6 +99,10 @@
             .add-friend-container {
                 display: flex;
                 flex-direction: column;
+
+                p {
+                    background-color: rgb(77, 77, 77);
+                }
 
                 .add-friend-button {
                     width:100%;
@@ -145,8 +160,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 3rem;
     font-size: 1.5rem;
+    margin: 1rem;
     h1, h2, p {
         background-color: rgb(77, 77, 77);
     }
