@@ -10,7 +10,7 @@ export class RaiderIOService {
   constructor(private http: HttpClient) { }
 
   getCharacterProfile(characterName: String, serverName: String): Observable<any>{
-    return this.http.get<any>(`https://raider.io/api/v1/characters/profile?region=us&realm=${serverName}&name=${characterName}&fields=mythic_plus_scores_by_season%3Acurrent%2Cguild%2Craid_progression`);
+    return this.http.get<any>(`https://raider.io/api/v1/characters/profile?region=us&realm=${serverName}&name=${characterName}&fields=mythic_plus_scores_by_season%3Acurrent%2Cguild%2Craid_progression%2Cmythic_plus_best_runs`);
   };
 
   getSeasonCutoff(): Observable<any> {
