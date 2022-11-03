@@ -38,12 +38,15 @@ export class FetchTestComponent implements OnInit {
   addButton: Boolean = true;
 
   friends: Array<any> = [
-    {characterName: "Tylerskohai", server: "illidan"},
-    {characterName: "Falfa", server: "sargeras"},
+    // {characterName: "Tylerskohai", server: "illidan"},
+    // {characterName: "Falfa", server: "sargeras"},
     {characterName: "Deadlyb", server: "bleeding-hollow"},
     {characterName: "Ðeadlyb", server: "bleeding-hollow"},
     {characterName: "Crucifyme", server: "Mal'ganis"},
-    {characterName: "Yamimage", server: "bleeding-hollow"},
+    {characterName: "Deadlyb", server: "bleeding-hollow"},
+    {characterName: "Ðeadlyb", server: "bleeding-hollow"},
+    {characterName: "Crucifyme", server: "Mal'ganis"},
+    // {characterName: "Yamimage", server: "bleeding-hollow"},
   ];
 
   constructor(private cookie: CookieService, private raiderIO: RaiderIOService) {}
@@ -99,7 +102,7 @@ export class FetchTestComponent implements OnInit {
     this.raiderIO.getSeasonCutoff().subscribe(data => {
       console.log(data);
       this.cutoff = data.cutoffs.p999.all.quantileMinValue;
-      this.averageRating = Math.round((((Number(this.cutoff) * 0.75 / 8) - 75) / 7.5) * 100)/100;
+      this.averageRating = Math.round(((Number(this.cutoff) - 480) / 112) * 100)/100;
       this.roundedAverageRating = Math.round(this.averageRating);
     })
   }
