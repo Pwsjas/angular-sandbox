@@ -69,12 +69,12 @@ export class FetchTestComponent implements OnInit {
       this.cookie.set(
         "character-name",
         `${this.characterNameInput}`,
-        1
+        365
       );
       this.cookie.set(
         "server-name",
         `${this.serverNameInput}`,
-        1
+        365
       );
       if (Number(this.characterRating) < Number(this.cutoff)) {
         this.acquired = 'red';
@@ -101,9 +101,9 @@ export class FetchTestComponent implements OnInit {
       this.cookie.set(
         "friend-list",
         JSON.stringify(this.friends),
-        1
+        365
       )
-      console.log(this.cookie.get('friend-list'))
+      this.addButton = true;
     });
   }
 
