@@ -37,17 +37,7 @@ export class FetchTestComponent implements OnInit {
   cutoff: String = '';
   addButton: Boolean = true;
 
-  friends: Array<any> = [
-    // {characterName: "Tylerskohai", server: "illidan"},
-    // {characterName: "Falfa", server: "sargeras"},
-    {characterName: "Deadlyb", server: "bleeding-hollow"},
-    {characterName: "Ðeadlyb", server: "bleeding-hollow"},
-    {characterName: "Crucifyme", server: "Mal'ganis"},
-    {characterName: "Deadlyb", server: "bleeding-hollow"},
-    {characterName: "Ðeadlyb", server: "bleeding-hollow"},
-    {characterName: "Crucifyme", server: "Mal'ganis"},
-    // {characterName: "Yamimage", server: "bleeding-hollow"},
-  ];
+  friends: Array<any> = [];
 
   constructor(private cookie: CookieService, private raiderIO: RaiderIOService) {}
   
@@ -55,6 +45,10 @@ export class FetchTestComponent implements OnInit {
   ngOnInit(): void {
     this.getSeasonCutoff();
     this.getRaiderIO();
+
+    if (this.cookie.check('friend-list')) {
+      this.friends = JSON.parse(this.cookie.get('friend-list'))
+    }
   }
 
   async getRaiderIO() {
@@ -94,7 +88,23 @@ export class FetchTestComponent implements OnInit {
   }
 
   getFriendRaiderIO() {
-
+    this.raiderIO.getCharacterProfile(this.friendNameInput, this.friendServerInput).subscribe(data => {
+      if(data) {
+        this.friends.push({
+          name: data.name,
+          rating: data.mythic_plus_scores_by_season[0].scores.all,
+          class: data.class,
+          spec: data.active_spec_name,
+          profilePicture: data.thumbnail_url
+        })
+      }
+      this.cookie.set(
+        "friend-list",
+        JSON.stringify(this.friends),
+        1
+      )
+      console.log(this.cookie.get('friend-list'))
+    });
   }
 
   async getSeasonCutoff() {

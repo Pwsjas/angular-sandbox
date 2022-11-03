@@ -44,8 +44,7 @@
         </div>
 
         <div *ngFor="let friend of friends" class="character-widget">
-            <app-character-widget [characterName]="friend.characterName"
-                [server]="friend.server"></app-character-widget>
+            <app-character-widget [profile]="friend"></app-character-widget>
         </div>
         <div *ngIf="addButton && friends.length < 7" class="add-character">
             <p (click)="toggleAddButton()">+</p>

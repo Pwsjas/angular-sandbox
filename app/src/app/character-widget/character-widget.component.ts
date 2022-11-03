@@ -8,10 +8,9 @@ import { RaiderIOService } from '../raider-io.service';
 })
 export class CharacterWidgetComponent implements OnInit {
   
-  @Input() characterName: String = ''
-  @Input() server: String = ''
+  @Input() profile: any;
 
-  profile: any = {};
+  characterName: String = '';
   rating: String = '';
   class: String = '';
   spec: String = '';
@@ -20,13 +19,10 @@ export class CharacterWidgetComponent implements OnInit {
   constructor(private raiderIO: RaiderIOService) { }
 
   ngOnInit(): void {
-    this.raiderIO.getCharacterProfile(this.characterName, this.server).subscribe(data => {
-      this.profile = data;
-      console.log(this.profile);
-      this.rating = this.profile.mythic_plus_scores_by_season[0].scores.all;
-      this.class = this.profile.class;
-      this.spec = this.profile.active_spec_name;
-      this.profilePicture = this.profile.thumbnail_url;
-    });
+    this.characterName = this.profile.name;
+    this.rating = this.profile.rating;
+    this.class = this.profile.class;
+    this.spec = this.profile.spec;
+    this.profilePicture = this.profile.profilePicture
   }
 }
