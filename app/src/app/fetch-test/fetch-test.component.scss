@@ -48,6 +48,10 @@
                 font-size: 0.8rem;
             }
 
+            button:hover {
+                color: rgb(0, 28, 153);
+            }
+
             .input-character{
                 display:flex;
                 flex-direction: column;
@@ -80,6 +84,10 @@
                 font-size: 5rem;
             }
 
+            p:hover {
+                color: rgb(0, 28, 153);
+            }
+
         }
         .add-character-input {
             display: flex;
@@ -103,6 +111,7 @@
 
                 .add-friend-button:hover {
                     cursor: pointer;
+                    color: rgb(0, 28, 153);
                 }
             }
         }

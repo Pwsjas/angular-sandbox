@@ -16,7 +16,7 @@ export class FetchTestComponent implements OnInit {
   friendNameInput: String = '';
   friendServerInput: String = '';
 
-  characterName: String = '';
+  characterName: String = 'tea';
   characterGuild: String = '';
   characterSpec: String = '';
   characterClass: String = '';
@@ -127,9 +127,12 @@ export class FetchTestComponent implements OnInit {
 
   async getGuildData() {
     this.raiderIO.getGuildData(this.guildName, this.serverNameInput).subscribe(data => {
+      this.raidRankingData = [];
+      this.raidProgressionData = [];
+      this.raidData = [];
+
       let num = 0;
       for (let i in data.raid_progression) {
-        console.log(i);
         if (!i.includes('fated')) {
           this.raidRankingData.push(data.raid_rankings[i]);
           this.raidProgressionData.push(data.raid_progression[i]);
@@ -137,7 +140,7 @@ export class FetchTestComponent implements OnInit {
           num += 1;
         }
       }
-      console.log(this.raidData);
+      
       this.guildName = data.name
     })
   }
