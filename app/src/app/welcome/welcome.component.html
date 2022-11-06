@@ -1,0 +1,16 @@
+<div *ngIf="new === true" class="container">
+    <div class="input-box">
+        <h1>Character Name</h1>
+        <input id="character" name="character" type="text" aria-label="character" [(ngModel)]="characterNameInput" required>
+    </div>
+    
+    <div class="input-box">
+        <h1>Server Name</h1>
+        <input id="server" name="server" type="text" aria-label="server" [(ngModel)]="serverNameInput" required>
+    </div>
+    <button (click)="search()">Search</button>
+    <p class="red" *ngIf="invalidInput === true">- Invalid Input -</p>
+</div>
+
+<app-fetch-test *ngIf="new === false"></app-fetch-test>
+    

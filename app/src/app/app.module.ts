@@ -11,6 +11,7 @@ import { FetchTestComponent } from './fetch-test/fetch-test.component';
 import { CharacterWidgetComponent } from './character-widget/character-widget.component';
 import { RaidWidgetComponent } from './raid-widget/raid-widget.component';
 import { DungeonWidgetComponent } from './dungeon-widget/dungeon-widget.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DungeonWidgetComponent } from './dungeon-widget/dungeon-widget.componen
     FetchTestComponent,
     CharacterWidgetComponent,
     RaidWidgetComponent,
-    DungeonWidgetComponent
+    DungeonWidgetComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,

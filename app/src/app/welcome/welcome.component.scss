@@ -1,0 +1,35 @@
+@import "../app.component.scss";
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .input-box {
+        display:flex;
+        flex-direction: column;
+        width: 400px;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        margin: 0.5rem;
+
+        input {
+            text-align: center;
+            height: 2.2rem;
+            font-size: 2rem;
+            width: 80%;
+        }
+    }
+
+    button {
+        margin: 1rem;
+        width: 300px;
+        height: 30px;
+        font-size: 1.5rem;
+    }
+}
