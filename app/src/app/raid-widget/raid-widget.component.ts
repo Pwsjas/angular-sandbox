@@ -17,7 +17,7 @@ export class RaidWidgetComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.raidData);
-    this.raidName = this.raidData.name.replace(/-/g, ' ');
+    this.raidName = this.getRaidName(this.raidData.name);
     this.raidProgress = this.raidData.raidProg.summary;
 
     if(this.raidData.raidRank.mythic) {
@@ -34,4 +34,22 @@ export class RaidWidgetComponent implements OnInit {
 
   }
 
+  getRaidName(raidName: String) {
+    let output: String = raidName.replace(/-/g, ' ');
+    let tempArr: Array<string> = output.split(' ');
+
+    for (let i = 0; i < tempArr.length; i++) {
+      if (tempArr[i] === "Of" || tempArr[i] === "The") {
+        tempArr[i] = tempArr[i].toLowerCase();
+      } else if (tempArr[i] !== 'of' && tempArr[i] !== 'the'){
+        let temp: Array<any> = tempArr[i].split('');
+        temp[0] = temp[0].toUpperCase();
+        tempArr[i] = temp.join('');
+      }
+    }
+
+    output = tempArr.join(' ');
+    console.log(output);
+    return output;
+  }
 }

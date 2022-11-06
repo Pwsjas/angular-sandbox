@@ -5,24 +5,72 @@
     height: 100%;
     width: 100%;
     margin-top: -3px;
+    position: relative;
 
-    img {
+    .exit {
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+        border: 1px solid black;
+        width: 5%;
+        p {
+            font-size: 1rem;
+            color: red;
+        }
+        p:hover {
+            cursor: pointer;
+        }
+    }
+
+    .character {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        p {
+            width: 75%;
+            text-align: left;
+        }
+    }
+
+    .profile-picture {
         border-left: 3px solid black;
         border-top: 3px solid black;
         border-bottom: 3px solid black;
     }
 
+    .icons {
+        width: 20%;
+        border-right: none;
+    }
+
+    .spec-icon {
+        border-radius: 50%;
+        width: 80%;
+        margin-top: 0.4rem;
+    }
+
+    .role-icon {
+        border-radius: 50%;
+        object-fit: contain;
+        height: 75%;
+        width: 75%;
+    }
+
     div {
+        position:relative;
         display:flex;
         flex-direction: column;
         width: 100%;
         justify-content: center;
         align-items: center;
         border: 3px solid black;
-        
+        border-left: none;
+
+
         p {
             font-size: 1.5rem;
             color: black;
+            text-align: left;
         }
     }
 }

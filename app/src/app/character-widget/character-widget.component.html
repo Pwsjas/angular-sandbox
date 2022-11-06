@@ -1,7 +1,14 @@
 <div class="container">
-    <img src="{{profilePicture}}">
-    <div class="{{class}}">
+    <img class="profile-picture"src="{{profilePicture}}">
+    <div class="{{class}} icons">
+        <img class="{{class}} spec-icon" src="../../assets/images/{{specIcon}}">
+        <img class="{{class}} role-icon" src="../../assets/images/{{role}}">
+    </div>
+    <div class="character {{class}}">
         <p class={{class}}>{{characterName}}</p>
         <p class={{class}}>{{rating}}</p>
+    </div>
+    <div class="{{class}} exit">
+        <p class="{{class}}" (click)="removeFriend()">X</p>
     </div>
 </div>

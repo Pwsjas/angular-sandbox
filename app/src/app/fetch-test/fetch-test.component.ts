@@ -38,6 +38,7 @@ export class FetchTestComponent implements OnInit {
   addButton: Boolean = true;
 
   friends: Array<any> = [];
+  deleteFriendName: String = '';
 
   constructor(private cookie: CookieService, private raiderIO: RaiderIOService) {}
   
@@ -49,6 +50,8 @@ export class FetchTestComponent implements OnInit {
     if (this.cookie.check('friend-list')) {
       this.friends = JSON.parse(this.cookie.get('friend-list'))
     }
+
+    console.log(this.friends);
   }
 
   async getRaiderIO() {
@@ -93,8 +96,9 @@ export class FetchTestComponent implements OnInit {
         this.friends.push({
           name: data.name,
           rating: data.mythic_plus_scores_by_season[0].scores.all,
-          class: data.class,
-          spec: data.active_spec_name,
+          class: data.class.replace(/\s+/g, ''),
+          spec: data.active_spec_name.replace(/\s+/g, ''),
+          role: `${data.active_spec_role.toLowerCase()}.png`,
           profilePicture: data.thumbnail_url
         })
       }
@@ -125,13 +129,30 @@ export class FetchTestComponent implements OnInit {
     this.raiderIO.getGuildData(this.guildName, this.serverNameInput).subscribe(data => {
       let num = 0;
       for (let i in data.raid_progression) {
-        this.raidRankingData.push(data.raid_rankings[i]);
-        this.raidProgressionData.push(data.raid_progression[i]);
-        this.raidData[num] = {name: i, raidProg: this.raidProgressionData[num], raidRank: this.raidRankingData[num]}
-        num += 1;
+        console.log(i);
+        if (!i.includes('fated')) {
+          this.raidRankingData.push(data.raid_rankings[i]);
+          this.raidProgressionData.push(data.raid_progression[i]);
+          this.raidData[num] = {name: i, raidProg: this.raidProgressionData[num], raidRank: this.raidRankingData[num]}
+          num += 1;
+        }
       }
       console.log(this.raidData);
       this.guildName = data.name
     })
+  }
+
+  deleteFriend(name: String) {
+    for (let i = 0; i < this.friends.length; i++) {
+      if (this.friends[i].name === name) {
+        this.friends.splice(i, 1)
+        this.cookie.set(
+          "friend-list",
+          JSON.stringify(this.friends),
+          365
+        )
+        return;
+      }
+    }
   }
 }

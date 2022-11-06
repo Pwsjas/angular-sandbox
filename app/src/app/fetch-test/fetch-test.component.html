@@ -11,10 +11,14 @@
                 <app-dungeon-widget *ngFor="let dungeon of dungeonData" [dungeon]="dungeon" [averageRating]="roundedAverageRating"></app-dungeon-widget>
             </div>
             <div class="cutoff">
-                <p>Seasonal Title Cutoff</p>
+                <div class="title-cutoff">
+                    <p>Title</p>
+                    <p>Cutoff</p>
+                </div>
+                <p class="splitter">|</p>
                 <div class="cutoff-average">
                     <p>{{cutoff}}</p>
-                    <p>(average of +{{averageRating}})</p>
+                    <p>(avg of +{{averageRating}})</p>
                 </div>
             </div>
     
@@ -31,23 +35,25 @@
 
         <div id="character-input">
             <img src={{profileIcon}}>
-            <div class="input-boxes">
-                <div>
-                    <p>Character Name:</p>
-                    <input id="character" name="character" type="text" aria-label="character" [(ngModel)]="characterNameInput"
-                        required>
+            <div class="input-character">
+                <div class="input-boxes">
+                    <div>
+                        <p>Character Name:</p>
+                        <input id="character" name="character" type="text" aria-label="character" [(ngModel)]="characterNameInput"
+                            required>
+                    </div>
+            
+                    <div>
+                        <p>Server Name:</p>
+                        <input id="server" name="server" type="text" aria-label="server" [(ngModel)]="serverNameInput" required>
+                    </div>
                 </div>
-        
-                <div>
-                    <p>Server Name:</p>
-                    <input id="server" name="server" type="text" aria-label="server" [(ngModel)]="serverNameInput" required>
-                </div>
+                <button (click)="getRaiderIO()">Search</button>
             </div>
-            <button (click)="getRaiderIO()">Search</button>
         </div>
 
         <div *ngFor="let friend of friends" class="character-widget">
-            <app-character-widget [profile]="friend"></app-character-widget>
+            <app-character-widget [profile]="friend" (deleteFriendName)="deleteFriend($event)"></app-character-widget>
         </div>
         <div *ngIf="addButton && friends.length < 7" class="add-character">
             <p (click)="toggleAddButton()">+</p>
