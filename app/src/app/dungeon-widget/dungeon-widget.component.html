@@ -1,8 +1,8 @@
 <div class="container">
     <div>
-        <h1 *ngIf="dungeonLevel < averageRating" class="dungeon red">{{dungeonName}}</h1>
-        <h1 *ngIf="dungeonLevel === averageRating" class="dungeon yellow">{{dungeonName}}</h1>
-        <h1 *ngIf="dungeonLevel > averageRating" class="dungeon green">{{dungeonName}}</h1>
+        <h2 *ngIf="dungeonLevel < averageRating" class="dungeon red">{{dungeonName}}</h2>
+        <h2 *ngIf="dungeonLevel === averageRating" class="dungeon yellow">{{dungeonName}}</h2>
+        <h2 *ngIf="dungeonLevel > averageRating" class="dungeon green">{{dungeonName}}</h2>
         <p>{{plus}}{{dungeonLevel}}</p>
     </div>
 </div>

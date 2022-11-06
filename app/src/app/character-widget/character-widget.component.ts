@@ -21,7 +21,7 @@ export class CharacterWidgetComponent implements OnInit {
   ngOnInit(): void {
     this.characterName = this.profile.name;
     this.rating = this.profile.rating;
-    this.class = this.profile.class;
+    this.class = this.profile.class.toLowerCase() + "-background";
     this.spec = this.profile.spec;
     this.profilePicture = this.profile.profilePicture
   }

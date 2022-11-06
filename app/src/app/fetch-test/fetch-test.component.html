@@ -2,7 +2,7 @@
 <div class="page-container {{characterFaction}}">
     <div class="main-content">
         <div class="character-content">
-            <div class="cutoff">
+            <div class="details">
                 <h1>{{characterName}}</h1>
                 <p class="{{characterClass}}">{{characterSpec}}</p>
                 <p class="{{acquired}}">{{characterRating}}</p>
@@ -11,8 +11,11 @@
                 <app-dungeon-widget *ngFor="let dungeon of dungeonData" [dungeon]="dungeon" [averageRating]="roundedAverageRating"></app-dungeon-widget>
             </div>
             <div class="cutoff">
-                <p>Seasonal Title Cutoff: </p>
-                <p>{{cutoff}} (average of +{{averageRating}})</p>
+                <p>Seasonal Title Cutoff</p>
+                <div class="cutoff-average">
+                    <p>{{cutoff}}</p>
+                    <p>(average of +{{averageRating}})</p>
+                </div>
             </div>
     
         </div>
