@@ -40,6 +40,8 @@ export class FetchTestComponent implements OnInit {
   friends: Array<any> = [];
   deleteFriendName: String = '';
 
+  invalidInput: boolean = false;
+
   constructor(private cookie: CookieService, private raiderIO: RaiderIOService) {}
   
 
@@ -62,7 +64,7 @@ export class FetchTestComponent implements OnInit {
       if (data.guild) {
         this.guildName = `${data.guild.name}`
       }
-      this.characterClass = data.class.toLowerCase();
+      this.characterClass = data.class.replace(/\s+/g, '').toLowerCase();
       this.characterSpec = `${data.active_spec_name} ${data.class}`;
       this.characterRating = `${data.mythic_plus_scores_by_season[0].scores.all}`
       this.characterFaction = data.faction;
@@ -93,6 +95,8 @@ export class FetchTestComponent implements OnInit {
   getFriendRaiderIO() {
     this.raiderIO.getCharacterProfile(this.friendNameInput, this.friendServerInput).subscribe(data => {
       if(data) {
+        this.invalidInput = false;
+
         this.friends.push({
           name: data.name,
           rating: data.mythic_plus_scores_by_season[0].scores.all,
@@ -108,6 +112,10 @@ export class FetchTestComponent implements OnInit {
         365
       )
       this.addButton = true;
+      this.friendNameInput = '';
+      this.friendServerInput = '';
+    }, err => {
+      this.invalidInput = true;
     });
   }
 
@@ -140,7 +148,7 @@ export class FetchTestComponent implements OnInit {
           num += 1;
         }
       }
-      
+
       this.guildName = data.name
     })
   }

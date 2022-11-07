@@ -33,22 +33,22 @@
 
     <div class="side-bar">
 
-        <div id="character-input">
+        <div id="character-input" class="{{characterClass}}-background">
             <img src={{profileIcon}}>
-            <div class="input-character">
-                <div class="input-boxes">
-                    <div>
-                        <p>Character Name:</p>
-                        <input id="character" name="character" type="text" aria-label="character" [(ngModel)]="characterNameInput"
+            <div class="input-character {{characterClass}}-background">
+                <div class="input-boxes {{characterClass}}-background">
+                    <div class="{{characterClass}}-background">
+                        <p class="{{characterClass}}-background">Character Name:</p>
+                        <input class="{{characterClass}}-background" id="character" name="character" type="text" aria-label="character" [(ngModel)]="characterNameInput"
                             required>
                     </div>
             
                     <div>
-                        <p>Server Name:</p>
-                        <input id="server" name="server" type="text" aria-label="server" [(ngModel)]="serverNameInput" required>
+                        <p class="{{characterClass}}-background">Server Name:</p>
+                        <input class="{{characterClass}}-background" id="server" name="server" type="text" aria-label="server" [(ngModel)]="serverNameInput" required>
                     </div>
                 </div>
-                <button (click)="getRaiderIO()">Search</button>
+                <button class="{{characterClass}}-background" (click)="getRaiderIO()">Search</button>
             </div>
         </div>
 
@@ -72,8 +72,13 @@
                             required>
                     </div>
                 </div>
-                <button class="add-friend-button" (click)="getFriendRaiderIO()">Search</button>
+                <button class="add-friend-button" (click)="getFriendRaiderIO()">Add Friend</button>
+                <p class="red error" *ngIf="invalidInput === true">- Invalid Input -</p>
             </div>
         </div>
     </div>
 </div>
+<footer>
+    <p>This website is powered by <a href="https://raider.io">Raider.io</a>'s API</p>
+    <p>Currently updated for World of Warcraft: Dragonflight</p>
+</footer>
