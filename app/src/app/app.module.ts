@@ -12,6 +12,7 @@ import { CharacterWidgetComponent } from './character-widget/character-widget.co
 import { RaidWidgetComponent } from './raid-widget/raid-widget.component';
 import { DungeonWidgetComponent } from './dungeon-widget/dungeon-widget.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { NavbarComponent } from './common/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
     CharacterWidgetComponent,
     RaidWidgetComponent,
     DungeonWidgetComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
