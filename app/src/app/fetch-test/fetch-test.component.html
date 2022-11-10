@@ -1,4 +1,4 @@
-<app-navbar [characterNameInput]="characterNameInput" [serverNameInput]="serverNameInput"></app-navbar>
+<app-navbar [characterNameInput]="characterNameInput" [serverNameInput]="serverNameInput" (characterDataEmitter)="updateCharacterData($event)"></app-navbar>
 <div class="page-container {{characterFaction}}">
     <div class="main-content">
         <div class="character-content">

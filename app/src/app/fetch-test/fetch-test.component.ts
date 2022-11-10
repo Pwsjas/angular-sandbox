@@ -166,4 +166,11 @@ export class FetchTestComponent implements OnInit {
       }
     }
   }
+
+  updateCharacterData(data: any) {
+    this.characterNameInput = data.name;
+    this.serverNameInput = data.server;
+
+    this.getRaiderIO();
+  }
 }
