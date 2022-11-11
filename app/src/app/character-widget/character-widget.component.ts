@@ -10,12 +10,14 @@ export class CharacterWidgetComponent implements OnInit {
   
   @Input() profile: any;
   @Output() deleteFriendName = new EventEmitter<String>();
+  @Output() searchFriendName = new EventEmitter<Object>();
 
   characterName: String = '';
   rating: String = '';
   class: String = '';
   spec: String = '';
   role: String = '';
+  server: String = '';
   profilePicture: String = '';
   specIcon: String = '';
 
@@ -27,6 +29,7 @@ export class CharacterWidgetComponent implements OnInit {
     this.class = this.profile.class.toLowerCase() + "-background";
     this.spec = this.profile.spec;
     this.role = this.profile.role;
+    this.server = this.profile.server;
     this.profilePicture = this.profile.profilePicture
     this.specIcon = `${this.spec}_${this.profile.class}.jpg`.toLocaleLowerCase();
     console.log(this.profile);
@@ -34,5 +37,9 @@ export class CharacterWidgetComponent implements OnInit {
 
   removeFriend() {
     this.deleteFriendName.emit(this.characterName);
+  }
+
+  searchFriend() {
+    this.searchFriendName.emit({name: this.characterName, server: this.server});
   }
 }

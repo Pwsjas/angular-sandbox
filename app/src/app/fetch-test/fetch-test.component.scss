@@ -4,17 +4,9 @@
     padding: 0;
 }
 
-.character-widget {
-    width: 400px;
-    height: 12%;
-}
-
 .page-container {
     display: flex;
     flex-direction: row;
-    width: 100%;
-    height: 100%;
-    margin-top: 3rem;
 
     .main-content {
         width: 100%;
@@ -29,54 +21,58 @@
 
     .side-bar {
         margin: 3rem;
-        height: 94vh;
+        margin-bottom: 6rem;
 
+        // #character-input {
+        //     display: flex;
+        //     flex-direction: row;
+        //     align-items: center;
+        //     width: 396px;
+        //     height: 12%;
+        //     border: 2px solid black;
 
-        #character-input {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            width: 396px;
-            height: 12%;
-            border: 2px solid black;
+        //     img {
+        //         margin-left: -2px;
+        //         height: 100%;
+        //     }
 
-            img {
-                margin-left: -2px;
-                height: 100%;
-            }
+        //     p, input, button, div{
+        //         font-size: 0.8rem;
+        //         color: rgb(1, 10, 49);
+        //     }
 
-            p, input, button, div{
-                font-size: 0.8rem;
-                color: rgb(1, 10, 49);
-            }
+        //     button {
+        //         margin-left: 1rem;
+        //         width: 60px;
+        //         margin-top: 0.5rem;
+        //     }
 
-            button {
-                margin-left: 1rem;
-                width: 60px;
-                margin-top: 0.5rem;
-            }
+        //     button:hover {
+        //         color: rgb(0, 37, 201);
+        //     }
 
-            button:hover {
-                color: rgb(0, 37, 201);
-            }
+        //     .input-character{
+        //         display:flex;
+        //         flex-direction: row;
+        //         justify-content: center;
+        //         align-items: center;
 
-            .input-character{
-                display:flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-
-                .input-boxes {
-                    display: flex;
-                    flex-direction: column;
-                    margin-left: 1rem;
-                }
-            }
+        //         .input-boxes {
+        //             display: flex;
+        //             flex-direction: column;
+        //             margin-left: 1rem;
+        //         }
+        //     }
 
         
-            button {
-                height: 20%;
-            }
+        //     button {
+        //         height: 20%;
+        //     }
+        // }
+
+        .character-widget {
+            width: 400px;
+            height: 110px;
         }
         
         .add-character {
@@ -84,7 +80,7 @@
             align-items: center;
             justify-content: center;
             width: 400px;
-            height: 12%;
+            height: 110px;
             font-size: 4rem;
 
             p {
@@ -102,7 +98,7 @@
             align-items: center;
             justify-content: center;
             width: 400px;
-            height: 12%;
+            height: 110px;
 
             .add-friend-input-layout {
                 display: flex;
@@ -182,8 +178,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 60vh;
-    width: 100%;
     margin: 1rem;
 
     .character-content {
@@ -265,7 +259,7 @@
 }
 
 footer {
-    box-sizing: border-box;
+    position: absolute;
     bottom: 0;
 
     display: flex;
@@ -274,13 +268,16 @@ footer {
     align-items: center;
     width: 100%;
     height: 50px;
-    padding-right: 1rem;
-    padding-left: 1rem;
 
     background-color: rgb(1, 10, 49);
 
     p, a {
         background-color: rgb(1, 10, 49);
+    }
+
+    p {
+        margin-left: 1rem;
+        margin-right: 1rem;
     }
 }
 
@@ -288,11 +285,5 @@ footer {
     .page-container {
         display:flex;
         flex-direction: column;
-
-        .side-bar {
-            height: 800px;
-            width: 500px;
-    
-        }
     }
   }

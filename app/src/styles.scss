@@ -5,6 +5,12 @@
     background-color: rgb(231, 232, 209);
 }
 
+body {
+    position: relative; 
+    min-height: 100vh;
+    padding-top: 60px;
+}
+
 button:hover {
     cursor: pointer;
 }

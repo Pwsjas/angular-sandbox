@@ -33,7 +33,7 @@
 
     <div class="side-bar">
 
-        <div id="character-input" class="{{characterClass}}-background">
+        <!-- <div id="character-input" class="{{characterClass}}-background">
             <img src={{profileIcon}}>
             <div class="input-character {{characterClass}}-background">
                 <div class="input-boxes {{characterClass}}-background">
@@ -50,10 +50,10 @@
                 </div>
                 <button class="{{characterClass}}-background" (click)="getRaiderIO()">Search</button>
             </div>
-        </div>
+        </div> -->
 
         <div *ngFor="let friend of friends" class="character-widget">
-            <app-character-widget [profile]="friend" (deleteFriendName)="deleteFriend($event)"></app-character-widget>
+            <app-character-widget [profile]="friend" (deleteFriendName)="deleteFriend($event)" (searchFriendName)="searchFriend($event)"></app-character-widget>
         </div>
         <div *ngIf="addButton && friends.length < 7" class="add-character">
             <p (click)="toggleAddButton()">+</p>

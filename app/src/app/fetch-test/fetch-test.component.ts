@@ -103,6 +103,7 @@ export class FetchTestComponent implements OnInit {
           class: data.class.replace(/\s+/g, ''),
           spec: data.active_spec_name.replace(/\s+/g, ''),
           role: `${data.active_spec_role.toLowerCase()}.png`,
+          server: data.realm,
           profilePicture: data.thumbnail_url
         })
       }
@@ -171,6 +172,12 @@ export class FetchTestComponent implements OnInit {
     this.characterNameInput = data.name;
     this.serverNameInput = data.server;
 
+    this.getRaiderIO();
+  }
+
+  searchFriend(friend: any) {
+    this.characterNameInput = friend.name;
+    this.serverNameInput = friend.server;
     this.getRaiderIO();
   }
 }
