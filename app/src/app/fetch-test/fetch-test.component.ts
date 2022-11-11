@@ -1,6 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
-import { isObservable, of } from 'rxjs';
 import { RaiderIOService } from '../raider-io.service';
 
 @Component({
@@ -37,10 +36,10 @@ export class FetchTestComponent implements OnInit {
   cutoff: String = '';
   addButton: Boolean = true;
 
-  friends: Array<any> = [];
   deleteFriendName: String = '';
 
   invalidInput: boolean = false;
+  friends: Array<any> = [];
 
   constructor(private cookie: CookieService, private raiderIO: RaiderIOService) {}
   
@@ -51,6 +50,14 @@ export class FetchTestComponent implements OnInit {
 
     if (this.cookie.check('friend-list')) {
       this.friends = JSON.parse(this.cookie.get('friend-list'))
+    } else {
+      this.friendNameInput = this.characterNameInput;
+      this.friendServerInput = this.serverNameInput;
+
+      this.getFriendRaiderIO();
+
+      this.friendNameInput = '';
+      this.friendServerInput = '';
     }
 
     console.log(this.friends);
