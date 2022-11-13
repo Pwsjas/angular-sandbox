@@ -23,7 +23,7 @@
             </div>
     
         </div>
-        <div class="guild-content">
+        <div *ngIf="guildName" class="guild-content">
             <h1><{{guildName}}></h1>
             <div class="raid-data">
                 <app-raid-widget *ngFor="let raid of raidData" [raidData]="raid"></app-raid-widget>

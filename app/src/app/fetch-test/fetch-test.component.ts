@@ -70,6 +70,11 @@ export class FetchTestComponent implements OnInit {
       this.characterName = `${data.name}`;
       if (data.guild) {
         this.guildName = `${data.guild.name}`
+      } else {
+        this.guildName = '';
+        this.raidRankingData = [];
+        this.raidProgressionData = [];
+        this.raidData = [];
       }
       this.characterClass = data.class.replace(/\s+/g, '').toLowerCase();
       this.characterSpec = `${data.active_spec_name} ${data.class}`;
