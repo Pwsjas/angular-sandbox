@@ -76,7 +76,8 @@ export class FetchTestComponent implements OnInit {
       this.characterRating = `${data.mythic_plus_scores_by_season[0].scores.all}`
       this.characterFaction = data.faction;
       this.profileIcon = data.thumbnail_url;
-      this.dungeonData = data.mythic_plus_best_runs;
+      this.sortDungeonData(data.mythic_plus_best_runs, data.mythic_plus_alternate_runs);
+      console.log(this.dungeonData);
   
       this.cookie.set(
         "character-name",
@@ -186,5 +187,43 @@ export class FetchTestComponent implements OnInit {
     this.characterNameInput = friend.name;
     this.serverNameInput = friend.server;
     this.getRaiderIO();
+  }
+
+  sortDungeonData(dungeonsBest: any, dungeonsAlternate: any) {
+    this.dungeonData = [];
+    let fort = [];
+    let tyran = [];
+    for (let dungeon of dungeonsBest) {
+      if (dungeon.affixes[0].name === 'Fortified') {
+        fort.push(dungeon);
+      } else {
+        tyran.push(dungeon);
+      }
+    }
+    for (let dungeon of dungeonsAlternate) {
+      if (dungeon.affixes[0].name === 'Fortified') {
+        fort.push(dungeon);
+      } else {
+        tyran.push(dungeon);
+      }
+    }
+
+    fort.sort((a, b) => a.short_name < b.short_name ? 1: -1);
+    tyran.sort((a, b) => a.short_name < b.short_name ? 1: -1);
+
+    let num: number = 0;
+    if (fort.length >= tyran.length) {
+      num = fort.length;
+    } else {
+      num = tyran.length;
+    }
+
+    for (let i = 0; i < num; i++) {
+      if (i === 0) {
+        this.dungeonData.push({fort: fort[i], tyran: tyran[i], first: true});
+      } else {
+        this.dungeonData.push({fort: fort[i], tyran: tyran[i]});
+      }
+    }
   }
 }

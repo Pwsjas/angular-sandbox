@@ -11,23 +11,38 @@ export class DungeonWidgetComponent implements OnInit {
   @Input() averageRating: number = 0;
 
   dungeonName: String = '';
-  dungeonLevel: number = 0;
-  dungeonUpgrade: String = '';
+  dungeonLevelFort: number = 0;
+  dungeonLevelTyran: number = 0;
+  dungeonUpgradeFort: String = '';
+  dungeonUpgradeTyran: String = '';
 
-  plus: String = '';
+  plusFort: String = '';
+  plusTyran: String = '';
 
   constructor() { }
 
   ngOnInit(): void {
-    this.dungeonName = this.dungeon.short_name;
-    this.dungeonLevel = Number(this.dungeon.mythic_level);
-    this.dungeonUpgrade = this.dungeon.num_keystone_upgrades;
-    if (Number(this.dungeonUpgrade) === 1) {
-      this.plus = "+"
-    } else if (Number(this.dungeonUpgrade) === 2) {
-      this.plus = "++"
-    } else if (Number(this.dungeonUpgrade) === 3) {
-      this.plus = "+++"
+    console.log(this.dungeon);
+    this.dungeonName = this.dungeon.fort.short_name;
+    this.dungeonLevelFort = Number(this.dungeon.fort.mythic_level);
+    this.dungeonLevelTyran = Number(this.dungeon.tyran.mythic_level);
+    this.dungeonUpgradeFort = this.dungeon.fort.num_keystone_upgrades;
+    this.dungeonUpgradeTyran = this.dungeon.tyran.num_keystone_upgrades;
+
+    if (Number(this.dungeonUpgradeFort) === 1) {
+      this.plusFort = "+"
+    } else if (Number(this.dungeonUpgradeFort) === 2) {
+      this.plusFort = "++"
+    } else if (Number(this.dungeonUpgradeFort) === 3) {
+      this.plusFort = "+++"
+    }
+
+    if (Number(this.dungeonUpgradeTyran) === 1) {
+      this.plusTyran = "+"
+    } else if (Number(this.dungeonUpgradeTyran) === 2) {
+      this.plusTyran = "++"
+    } else if (Number(this.dungeonUpgradeTyran) === 3) {
+      this.plusTyran = "+++"
     }
 
     this.averageRating = Math.round(this.averageRating);

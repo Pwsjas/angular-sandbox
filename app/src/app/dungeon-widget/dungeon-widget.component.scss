@@ -30,4 +30,16 @@
             margin: 0.2rem;
         }
     }
+
+    .ratings {
+        display:flex;
+        flex-direction: row;
+        position:relative;
+        justify-content: center;
+        img {
+            position: absolute;
+            left: -5px;
+            height: 25px;
+        }
+    }
 }

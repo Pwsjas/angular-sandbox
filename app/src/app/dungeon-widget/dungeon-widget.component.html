@@ -1,8 +1,27 @@
 <div class="container">
     <div>
         <h2>{{dungeonName}}</h2>
-        <p *ngIf="dungeonLevel > averageRating" class="dungeon green">{{plus}}{{dungeonLevel}}</p>
-        <p *ngIf="dungeonLevel === averageRating" class="dungeon yellow">{{plus}}{{dungeonLevel}}</p>
-        <p *ngIf="dungeonLevel < averageRating" class="dungeon red">{{plus}}{{dungeonLevel}}</p>
+        <div *ngIf="!dungeon.first">
+            <p *ngIf="dungeonLevelFort > averageRating" class="dungeon green">{{plusFort}}{{dungeonLevelFort}}</p>
+            <p *ngIf="dungeonLevelFort === averageRating" class="dungeon yellow">{{plusFort}}{{dungeonLevelFort}}</p>
+            <p *ngIf="dungeonLevelFort < averageRating" class="dungeon red">{{plusFort}}{{dungeonLevelFort}}</p>
+            <p *ngIf="dungeonLevelTyran > averageRating" class="dungeon green">{{plusTyran}}{{dungeonLevelTyran}}</p>
+            <p *ngIf="dungeonLevelTyran === averageRating" class="dungeon yellow">{{plusTyran}}{{dungeonLevelTyran}}</p>
+            <p *ngIf="dungeonLevelTyran < averageRating" class="dungeon red">{{plusTyran}}{{dungeonLevelTyran}}</p>
+        </div>
+        <div *ngIf="dungeon.first">
+            <div class="ratings">
+                <img src="../../assets/images/fort.jpg">
+                <p *ngIf="dungeonLevelFort > averageRating" class="dungeon green">{{plusFort}}{{dungeonLevelFort}}</p>
+                <p *ngIf="dungeonLevelFort === averageRating" class="dungeon yellow">{{plusFort}}{{dungeonLevelFort}}</p>
+                <p *ngIf="dungeonLevelFort < averageRating" class="dungeon red">{{plusFort}}{{dungeonLevelFort}}</p>
+            </div>
+            <div class="ratings">
+                <img src="../../assets/images/tyran.jpg">
+                <p *ngIf="dungeonLevelTyran > averageRating" class="dungeon green">{{plusTyran}}{{dungeonLevelTyran}}</p>
+                <p *ngIf="dungeonLevelTyran === averageRating" class="dungeon yellow">{{plusTyran}}{{dungeonLevelTyran}}</p>
+                <p *ngIf="dungeonLevelTyran < averageRating" class="dungeon red">{{plusTyran}}{{dungeonLevelTyran}}</p>
+            </div>
+        </div>
     </div>
 </div>
