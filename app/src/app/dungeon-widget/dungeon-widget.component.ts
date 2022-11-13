@@ -38,6 +38,7 @@ export class DungeonWidgetComponent implements OnInit {
     }
 
     if (this.dungeon.tyran) {
+      this.dungeonName = this.dungeon.tyran.short_name;
       this.dungeonLevelTyran = Number(this.dungeon.tyran.mythic_level);
       this.dungeonUpgradeTyran = this.dungeon.tyran.num_keystone_upgrades;
 
