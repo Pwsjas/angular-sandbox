@@ -13,6 +13,7 @@ import { RaidWidgetComponent } from './raid-widget/raid-widget.component';
 import { DungeonWidgetComponent } from './dungeon-widget/dungeon-widget.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { NavbarComponent } from './common/navbar/navbar.component';
+import { StatisticsComponent } from './statistics/statistics.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NavbarComponent } from './common/navbar/navbar.component';
     RaidWidgetComponent,
     DungeonWidgetComponent,
     WelcomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    StatisticsComponent
   ],
   imports: [
     BrowserModule,
