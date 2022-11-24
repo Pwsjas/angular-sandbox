@@ -1,9 +1,8 @@
 # WoW Tracker
 
-WoW Tracker is a one page app built with the Angular CLI, and powered by Raider.io's public API.  Its purpose is to allow World of Warcraft players to easily view their various forms of gameplay progression all in one place as opposed to navigating to different websites and different pages within those sites.
+WoW Tracker is a one page app built with the Angular CLI, and powered by Raider.io's public API and deployed to https://wowtracker.app using Amazon Web Services.  Its purpose is to allow World of Warcraft players to easily view their various forms of gameplay progression all in one place as opposed to navigating to different websites and different pages within those sites.
 
-The website is available here: https://wow-tracker.cyclic.app/
-(For those interested without a World of Warcraft account, feel free to use the character name `Pwsjas`, and the server name `Bleeding-Hollow`)
+(For those interested in viewing the site without a World of Warcraft account, feel free to use the character name `Pwsjas`, and the server name `Bleeding-Hollow`)
 
 ![image of the entire website](https://github.com/Pwsjas/angular-sandbox/blob/development/app/docs/site.png?raw=true)
 
