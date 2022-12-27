@@ -106,18 +106,18 @@ export class FetchTestComponent implements OnInit {
   }
 
   getFriendRaiderIO() {
-    this.raiderIO.getCharacterProfile(this.friendNameInput, this.friendServerInput).subscribe(data => {
+    this.raiderIO.getBasicCharacterProfile(this.friendNameInput, this.friendServerInput).subscribe(data => {
       if(data) {
         this.invalidInput = false;
 
         this.friends.push({
           name: data.name,
-          rating: data.mythic_plus_scores_by_season[0].scores.all,
-          class: data.class.replace(/\s+/g, ''),
-          spec: data.active_spec_name.replace(/\s+/g, ''),
-          role: `${data.active_spec_role.toLowerCase()}.png`,
           server: data.realm,
-          profilePicture: data.thumbnail_url
+          // rating: data.mythic_plus_scores_by_season[0].scores.all,
+          // class: data.class.replace(/\s+/g, ''),
+          // spec: data.active_spec_name.replace(/\s+/g, ''),
+          // role: `${data.active_spec_role.toLowerCase()}.png`,
+          // profilePicture: data.thumbnail_url
         })
       }
       this.cookie.set(

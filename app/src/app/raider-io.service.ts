@@ -13,8 +13,12 @@ export class RaiderIOService {
     return this.http.get<any>(`https://raider.io/api/v1/characters/profile?region=us&realm=${serverName}&name=${characterName}&fields=mythic_plus_scores_by_season%3Acurrent%2Cguild%2Craid_progression%2Cmythic_plus_best_runs%2Cmythic_plus_alternate_runs`);
   };
 
+  getBasicCharacterProfile(characterName: String, serverName: String): Observable<any>{
+    return this.http.get<any>(`https://raider.io/api/v1/characters/profile?region=us&realm=${serverName}&name=${characterName}&fields=mythic_plus_scores_by_season%3Acurrent`);
+  };
+
   getSeasonCutoff(): Observable<any> {
-    return this.http.get<any>(`https://raider.io/api/v1/mythic-plus/season-cutoffs?season=season-sl-4&region=us`);
+    return this.http.get<any>(`https://raider.io/api/v1/mythic-plus/season-cutoffs?season=season-df-1&region=us`);
   };
 
   getGuildData(guildName: String, serverName: String): Observable<any> {

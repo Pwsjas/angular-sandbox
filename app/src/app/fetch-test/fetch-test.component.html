@@ -32,26 +32,6 @@
     </div>
 
     <div class="side-bar">
-
-        <!-- <div id="character-input" class="{{characterClass}}-background">
-            <img src={{profileIcon}}>
-            <div class="input-character {{characterClass}}-background">
-                <div class="input-boxes {{characterClass}}-background">
-                    <div class="{{characterClass}}-background">
-                        <p class="{{characterClass}}-background">Character Name:</p>
-                        <input class="{{characterClass}}-background" id="character" name="character" type="text" aria-label="character" [(ngModel)]="characterNameInput"
-                            required>
-                    </div>
-            
-                    <div>
-                        <p class="{{characterClass}}-background">Server Name:</p>
-                        <input class="{{characterClass}}-background" id="server" name="server" type="text" aria-label="server" [(ngModel)]="serverNameInput" required>
-                    </div>
-                </div>
-                <button class="{{characterClass}}-background" (click)="getRaiderIO()">Search</button>
-            </div>
-        </div> -->
-
         <div *ngFor="let friend of friends" class="character-widget">
             <app-character-widget [profile]="friend" (deleteFriendName)="deleteFriend($event)" (searchFriendName)="searchFriend($event)"></app-character-widget>
         </div>
