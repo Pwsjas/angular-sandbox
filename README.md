@@ -3,13 +3,13 @@ WoW Tracker is a one page app built with the Angular CLI, powered by Raider.io's
 
 (For those interested in viewing the site without a World of Warcraft account, feel free to use the character name `Pwsjas`, and the server name `Bleeding-Hollow`)
 
-![image of the entire website](https://github.com/Pwsjas/angular-sandbox/blob/development/app/docs/site.png?raw=true)
+![image of the entire website](https://github.com/Pwsjas/wowtracker/blob/main/app/docs/site.png?raw=true)
 
 ## Mythic+ Tracker
 
 The mythic+ section displays the current season's 0.1% cutoff, as well as all of a player's current progress (and whether their progress is above or below the cutoff).
 
-![image of mythic+ progress](https://github.com/Pwsjas/angular-sandbox/blob/development/app/docs/dungeons.png?raw=true)
+![image of mythic+ progress](https://github.com/Pwsjas/wowtracker/blob/main/app/docs/dungeons.png?raw=true)
 
 ## Raid Tracker
 
@@ -21,7 +21,7 @@ The raid section displays a player's guild's current raid progression for the ac
 
 The friend tracker allows users to input their friend's names and server, and conveniently view their current mythic+ rating, along with their Class, Role, and Specialiation.
 
-![image of friends list](https://github.com/Pwsjas/angular-sandbox/blob/development/app/docs/friends.png?raw=true)
+![image of friends list](https://github.com/Pwsjas/wowtracker/blob/main/app/docs/friends.png?raw=true)
 
 ### Notes
 
