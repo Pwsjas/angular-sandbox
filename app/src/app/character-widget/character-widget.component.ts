@@ -36,11 +36,11 @@ export class CharacterWidgetComponent implements OnInit {
 
     this.raiderIO.getBasicCharacterProfile(this.characterName, this.serverName).subscribe(data => {
       this.rating = data.mythic_plus_scores_by_season[0].scores.all;
-      this.class = data.class.toLowerCase() + "-background";
+      this.class = data.class.replace(/\s+/g, '').toLowerCase() + "-background";
       this.spec = data.active_spec_name;
       this.role = `${data.active_spec_role.toLowerCase()}.png`,
       this.profilePicture = data.thumbnail_url;
-      this.specIcon = `${this.spec}_${data.class}.jpg`.toLocaleLowerCase();
+      this.specIcon = `${this.spec}_${data.class.replace(/\s+/g, '').toLowerCase()}.jpg`.toLocaleLowerCase();
     })
   }
 
