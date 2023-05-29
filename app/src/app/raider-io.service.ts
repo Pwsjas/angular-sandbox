@@ -18,7 +18,7 @@ export class RaiderIOService {
   };
 
   getSeasonCutoff(): Observable<any> {
-    return this.http.get<any>(`https://raider.io/api/v1/mythic-plus/season-cutoffs?season=season-df-1&region=us`);
+    return this.http.get<any>(`https://raider.io/api/v1/mythic-plus/season-cutoffs?season=season-df-2&region=us`);
   };
 
   getGuildData(guildName: String, serverName: String): Observable<any> {
