@@ -32,7 +32,7 @@ The friend tracker allows users to input their friend's names and server, and co
 ## Running the Application
 
 This project was created using the Angular CLI.
-Run `npm install` to install all requires packages.
+Run `npm install` to install all required packages.
 Run `ng serve` to run a development server. Navigate to `http://localhost:4200/` to view the website
 
 Otherwise, the application is once again available to view at https://wowtracker.app
